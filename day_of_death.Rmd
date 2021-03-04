@@ -18,6 +18,28 @@ x <- data.table::fread("~/bunmd_v2.csv") %>%
   as_tibble() %>% 
   select(ssn, lname, dyear, dmonth, dday, byear, bmonth, bday)
 
-x
+
+```
+```{r}
+
+small <- x %>%
+  slice_sample(prop = 0.01) %>%
+
+small
+
+```
+
+```{r}
+small %>%
+  drop_na(dday) %>%
+  filter(dyear ) %>%
+  ggplot(aes(x = dday)) +
+  geom_bar() +
+  labs(title = "Frequency of Death Days")
+```
+```{r}
+
+small %>%
+  
 ```
 
